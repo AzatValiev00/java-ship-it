@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ParcelBox<T extends Parcel> {
 
-    ArrayList<T> box = new ArrayList<>();
+    private ArrayList<T> parcels = new ArrayList<>();
     private int maxBoxWeight;
     private int boxWeight = 0;
 
@@ -16,17 +16,11 @@ public class ParcelBox<T extends Parcel> {
         if ((boxWeight + parcel.getWeight()) > maxBoxWeight) {
             System.out.println("При добавлении этого предмета масса коробки превысит максимально допустимую!");
         } else {
-            box.add(parcel);
+            parcels.add(parcel);
             boxWeight += parcel.getWeight();
         }
     }
-    public ArrayList<T> getParcels() {
-        return box;
-    }
-
-    public void getAllParcels() {
-        for(T parcel : box) {
-            System.out.println(parcel.toString());
-        }
+    public ArrayList<T> getAllParcels() {
+        return parcels;
     }
 }
