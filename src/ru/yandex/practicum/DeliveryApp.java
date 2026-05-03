@@ -120,29 +120,28 @@ private static void trackParcels() {
         }
 }
 
-private static <T extends Parcel> void showBoxContent() {
+private static void showBoxContent() {
     System.out.println("Коробку с какими посылками вы желаете посмотреть?");
     System.out.println("1 - Стандартные посылки");
     System.out.println("2 - Скоропортящиеся посылки");
     System.out.println("3 - Хрупкие посылки");
     int command = Integer.parseInt(scanner.nextLine());
-    ArrayList<T> parcels;
+    List<? extends Parcel> parcels = new ArrayList<>();
     switch (command) {
         case 1: {
-            parcels = (ArrayList<T>) standartBox.getAllParcels();
+            parcels = standartBox.getAllParcels();
             break;
         }
         case 2: {
-            parcels = (ArrayList<T>) perishableBox.getAllParcels();
+            parcels =  perishableBox.getAllParcels();
             break;
         }
         case 3: {
-            parcels = (ArrayList<T>) fragileBox.getAllParcels();
+            parcels = fragileBox.getAllParcels();
             break;
         }
         default:
             System.out.println("Неверный выбор");
-            parcels = null;
     }
     if (parcels.isEmpty()) {
         System.out.println("Коробка пуста!");

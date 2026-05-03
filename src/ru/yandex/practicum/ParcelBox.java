@@ -1,6 +1,7 @@
 package ru.yandex.practicum;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
 
@@ -20,7 +21,7 @@ public class ParcelBox<T extends Parcel> {
             boxWeight += parcel.getWeight();
         }
     }
-    public ArrayList<T> getAllParcels() {
+    public List<T> getAllParcels() {
         return parcels;
     }
 }

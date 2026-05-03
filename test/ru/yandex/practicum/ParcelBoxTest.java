@@ -3,7 +3,7 @@ package ru.yandex.practicum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +23,7 @@ class ParcelBoxTest {
     void parcelWeightIsUnderLimit() {
         StandardParcel parcel2 = new StandardParcel("Parcel2", 1, "Address", 2);
         box.addParcel(parcel2);
-        ArrayList<StandardParcel> actual = box.getAllParcels();
+        List<StandardParcel> actual = box.getAllParcels();
         assertEquals(2, actual.size());
         assertTrue(actual.contains(parcel1));
         assertTrue(actual.contains(parcel2));
@@ -33,7 +33,7 @@ class ParcelBoxTest {
     void parcelWeightEqualsLimit() {
         StandardParcel parcel2 = new StandardParcel("Parcel2", 2, "Address", 2);
         box.addParcel(parcel2);
-        ArrayList<StandardParcel> actual = box.getAllParcels();
+        List<StandardParcel> actual = box.getAllParcels();
         assertEquals(2, actual.size());
         assertTrue(actual.contains(parcel1));
         assertTrue(actual.contains(parcel2));
@@ -43,7 +43,7 @@ class ParcelBoxTest {
     void parcelWeightExceedsLimit() {
         StandardParcel parcel2 = new StandardParcel("Parcel2", 3, "Address", 2);
         box.addParcel(parcel2);
-        ArrayList<StandardParcel> actual = box.getAllParcels();
+        List<StandardParcel> actual = box.getAllParcels();
         assertEquals(1, actual.size());
         assertTrue(actual.contains(parcel1));
         assertFalse(actual.contains(parcel2));
